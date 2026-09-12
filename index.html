@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Jhon Carlo Palomar, AI Automation Specialist</title>
+<meta name="description" content="Portfolio of Jhon Carlo Palomar, AI Automation Specialist building automation systems that connect AI, APIs, data, and business workflows." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #080b12;
+    --bg-2: #0a0e17;
+    --surface: #101622;
+    --surface-2: #151c2a;
+    --border: #1e293b;
+    --border-soft: #17202f;
+    --text: #f1f5f9;
+    --text-muted: #94a3b8;
+    --text-faint: #64748b;
+    --accent: #3b82f6;
+    --accent-deep: #2563eb;
+    --accent-dim: #3b82f61f;
+    --accent-line: #3b82f64d;
+    --violet: #8b5cf6;
+    --violet-dim: #8b5cf61f;
+    --violet-line: #8b5cf64d;
+    --highlight: #22d3ee;
+    --highlight-dim: #22d3ee1f;
+    --highlight-line: #22d3ee4d;
+    --radius-sm: 6px;
+    --radius-md: 12px;
+    --radius-lg: 20px;
+    --maxw: 1140px;
+  }
+
+  *{ box-sizing: border-box; }
+  html{ scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior: auto; }
+    *{ animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; }
+  }
+
+  body{
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    position: relative;
+  }
+  body::before{
+    content: "";
+    position: fixed;
+    inset: 0;
+    background:
+      radial-gradient(600px 420px at 8% 0%, rgba(59,130,246,0.07), transparent 60%),
+      radial-gradient(560px 400px at 96% 30%, rgba(139,92,246,0.06), transparent 60%);
+    pointer-events: none;
+    z-index: -1;
+  }
+
+  h1, h2, h3{
+    font-family: 'Space Grotesk', 'Inter', sans-serif;
+    font-weight: 600;
+    line-height: 1.15;
+    margin: 0;
+  }
+
+  code, .mono{ font-family: 'JetBrains Mono', monospace; }
+  a{ color: inherit; text-decoration: none; }
+  ::selection{ background: var(--accent-dim); color: var(--text); }
+
+  a:focus-visible,
+  button:focus-visible{
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  .wrap{
+    max-width: var(--maxw);
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+
+  /* ---------- NAV ---------- */
+  header.site-nav{
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(8,11,18,0.78);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border-soft);
+  }
+  .nav-inner{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 68px;
+  }
+  .nav-name{
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    letter-spacing: 0.2px;
+  }
+  .nav-name span{ color: var(--accent); }
+  nav.nav-links{ display: flex; gap: 32px; }
+  nav.nav-links a{
+    font-size: 14.5px;
+    color: var(--text-muted);
+    transition: color 0.15s ease;
+  }
+  nav.nav-links a:hover{ color: var(--text); }
+
+  .nav-toggle{
+    display: none;
+    background: none;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    color: var(--text);
+    align-items: center;
+    justify-content: center;
+  }
+  .nav-toggle svg{ width: 18px; height: 18px; }
+
+  .mobile-menu{
+    display: none;
+    flex-direction: column;
+    border-top: 1px solid var(--border-soft);
+    background: var(--bg);
+  }
+  .mobile-menu.open{ display: flex; }
+  .mobile-menu a{
+    padding: 16px 32px;
+    border-bottom: 1px solid var(--border-soft);
+    color: var(--text-muted);
+    font-size: 15px;
+  }
+  .mobile-menu a:hover{ color: var(--text); }
+
+  @media (max-width: 760px){
+    nav.nav-links{ display: none; }
+    .nav-toggle{ display: inline-flex; }
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position: relative;
+    overflow: hidden;
+    padding: 116px 0 104px;
+    border-bottom: 1px solid var(--border-soft);
+    isolation: isolate;
+  }
+  .hero::before{
+    content: "";
+    position: absolute;
+    inset: -20% -10% auto -10%;
+    height: 700px;
+    background:
+      radial-gradient(480px 320px at 12% 20%, rgba(59,130,246,0.16), transparent 70%),
+      radial-gradient(520px 360px at 88% 10%, rgba(139,92,246,0.14), transparent 70%);
+    z-index: -1;
+    pointer-events: none;
+  }
+  .hero-grid{
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 48px;
+    align-items: center;
+  }
+  @media (max-width: 900px){
+    .hero-grid{ grid-template-columns: 1fr; }
+    .hero-visual{ order: -1; height: 260px; }
+  }
+
+  .eyebrow-role{
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    color: var(--accent);
+    margin-bottom: 20px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .eyebrow-role .dot{
+    width: 6px; height: 6px; border-radius: 50%;
+    background: var(--accent);
+    box-shadow: 0 0 0 4px var(--accent-dim);
+    animation: pulse-dot 2.4s ease-in-out infinite;
+  }
+  @keyframes pulse-dot{
+    0%, 100%{ box-shadow: 0 0 0 4px var(--accent-dim); }
+    50%{ box-shadow: 0 0 0 7px var(--accent-dim); }
+  }
+
+  .hero h1{
+    font-size: clamp(32px, 4.4vw, 50px);
+    letter-spacing: -0.6px;
+  }
+  .hero h1 .grad{
+    background: linear-gradient(100deg, var(--text) 25%, var(--accent) 62%, var(--violet) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .hero-intro{
+    margin-top: 24px;
+    color: var(--text-muted);
+    font-size: 17px;
+    max-width: 54ch;
+  }
+
+  .hero-actions{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 36px;
+  }
+
+  .btn{
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 22px;
+    border-radius: var(--radius-sm);
+    font-size: 14.5px;
+    font-weight: 500;
+    cursor: pointer;
+    border: 1px solid transparent;
+    transition: transform 0.18s ease, background 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
+  }
+  .btn svg{ width: 16px; height: 16px; flex-shrink: 0; }
+
+  .btn-primary{
+    background: linear-gradient(135deg, var(--accent), var(--accent-deep));
+    color: #f8fafc;
+    box-shadow: 0 8px 24px -8px rgba(59,130,246,0.5);
+  }
+  .btn-primary:hover{ transform: translateY(-2px); box-shadow: 0 12px 28px -8px rgba(59,130,246,0.6); }
+
+  .btn-outline{
+    background: rgba(255,255,255,0.02);
+    border-color: var(--border);
+    color: var(--text);
+  }
+  .btn-outline:hover{
+    border-color: var(--text-faint);
+    background: var(--surface);
+    transform: translateY(-2px);
+  }
+
+  .btn-sm{ padding: 9px 15px; font-size: 13.5px; }
+
+  /* Abstract systems visual */
+  .hero-visual{
+    position: relative;
+    height: 380px;
+  }
+  .hero-visual svg{ width: 100%; height: 100%; }
+
+  .hv-ring{
+    fill: none;
+    stroke-width: 1;
+  }
+  .hv-ring-1{ stroke: rgba(148,163,184,0.28); }
+  .hv-ring-2{ stroke: rgba(59,130,246,0.4); stroke-dasharray: 2 6; }
+  .hv-ring-3{ stroke: url(#ringGrad); }
+
+  .hv-spin-slow{ transform-origin: 190px 190px; animation: spin 40s linear infinite; }
+  .hv-spin-rev{ transform-origin: 190px 190px; animation: spin-rev 55s linear infinite; }
+  .hv-spin-mid{ transform-origin: 190px 190px; animation: spin 26s linear infinite; }
+  @keyframes spin{ to{ transform: rotate(360deg); } }
+  @keyframes spin-rev{ to{ transform: rotate(-360deg); } }
+
+  .hv-core{
+    animation: core-pulse 3.6s ease-in-out infinite;
+    transform-origin: 190px 190px;
+  }
+  @keyframes core-pulse{
+    0%, 100%{ opacity: 0.9; transform: scale(1); }
+    50%{ opacity: 1; transform: scale(1.04); }
+  }
+
+  .hv-node{
+    fill: var(--bg-2);
+    stroke: var(--text-faint);
+    stroke-width: 1.2;
+  }
+  .hv-node-accent{ fill: var(--accent); stroke: var(--accent); }
+  .hv-node-violet{ fill: var(--violet); stroke: var(--violet); }
+
+  .hv-tick{ stroke: rgba(148,163,184,0.2); stroke-width: 1; }
+
+
+  /* Refined animated systems visual */
+  .hv-aura{
+    transform-origin: 190px 190px;
+    animation: aura-breathe 5.8s ease-in-out infinite;
+  }
+  .hv-energy-path{
+    fill: none;
+    stroke: url(#energyGrad);
+    stroke-width: 1.4;
+    stroke-linecap: round;
+    stroke-dasharray: 12 16;
+    opacity: 0.5;
+    animation: energy-flow 6s linear infinite;
+    filter: url(#softGlow);
+  }
+  .hv-energy-path.alt{ animation-duration: 8s; animation-direction: reverse; opacity: 0.34; }
+  .hv-satellite{
+    transform-origin: 190px 190px;
+    animation: satellite-orbit 14s linear infinite;
+  }
+  .hv-satellite.alt{ animation-duration: 20s; animation-direction: reverse; }
+  .hv-data-dot{
+    fill: #22d3ee;
+    filter: url(#softGlow);
+    animation: data-pulse 2.8s ease-in-out infinite;
+  }
+  .hv-data-dot.violet{ fill: #8b5cf6; animation-delay: 1.1s; }
+  .hv-core-halo{
+    fill: none;
+    stroke: url(#coreRingGrad);
+    stroke-width: 1.3;
+    stroke-dasharray: 8 9;
+    transform-origin: 190px 190px;
+    animation: spin 13s linear infinite;
+    filter: url(#softGlow);
+  }
+  .hv-core-mark{
+    filter: url(#softGlow);
+  }
+  @keyframes aura-breathe{
+    0%,100%{ opacity:.5; transform:scale(.97); }
+    50%{ opacity:.9; transform:scale(1.045); }
+  }
+  @keyframes energy-flow{ to{ stroke-dashoffset:-56; } }
+  @keyframes satellite-orbit{ to{ transform:rotate(360deg); } }
+  @keyframes data-pulse{
+    0%,100%{ opacity:.45; }
+    50%{ opacity:1; }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .hv-spin-slow, .hv-spin-rev, .hv-spin-mid, .hv-core, .hv-aura, .hv-energy-path, .hv-satellite, .hv-data-dot, .hv-core-halo{ animation: none; }
+  }
+
+  /* ---------- SECTION SHELL ---------- */
+  section{ padding: 96px 0; border-bottom: 1px solid var(--border-soft); position: relative; }
+  section:last-of-type{ border-bottom: none; }
+
+  .section-head{
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 24px;
+    margin-bottom: 20px;
+  }
+  .section-num{
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    color: var(--text-faint);
+  }
+  .section-head h2{ font-size: clamp(24px, 3vw, 32px); }
+  .section-sub{
+    color: var(--text-muted);
+    font-size: 15.5px;
+    max-width: 60ch;
+    margin: 0 0 44px;
+  }
+
+  /* ---------- ABOUT ---------- */
+  .about-body{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 56px;
+  }
+  @media (max-width: 760px){
+    .about-body{ grid-template-columns: 1fr; gap: 24px; }
+  }
+  .about-body p{ color: var(--text-muted); font-size: 16px; max-width: 56ch; }
+  .about-body p + p{ margin-top: 16px; }
+  .about-focus{ border-left: 1px solid var(--border); padding-left: 28px; }
+  .about-focus h3{
+    font-size: 15px; color: var(--text-faint);
+    font-family: 'JetBrains Mono', monospace; font-weight: 400;
+    margin-bottom: 14px;
+  }
+  .about-focus ul{ list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }
+  .about-focus li{ color: var(--text-muted); font-size: 15px; padding-left: 18px; position: relative; }
+  .about-focus li::before{
+    content: ""; position: absolute; left: 0; top: 9px;
+    width: 6px; height: 6px; border-radius: 1px; background: var(--highlight);
+  }
+
+  /* ---------- STACK ---------- */
+  .stack-groups{ display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+  @media (max-width: 700px){ .stack-groups{ grid-template-columns: 1fr; } }
+
+  .stack-card{
+    position: relative;
+    --card-accent: var(--accent);
+    --card-dim: var(--accent-dim);
+    background: linear-gradient(160deg, rgba(21,28,42,0.92), rgba(10,14,23,0.92));
+    backdrop-filter: blur(6px);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 28px;
+    overflow: hidden;
+    transition: border-color 0.2s ease, transform 0.2s ease;
+  }
+  .stack-card:hover{ border-color: var(--border-soft); transform: translateY(-2px); }
+  .stack-card::after{
+    content: "";
+    position: absolute; inset: 0;
+    background: radial-gradient(220px 140px at 100% 0%, var(--card-dim), transparent 70%);
+    opacity: 0;
+    transition: opacity 0.25s ease;
+    pointer-events: none;
+  }
+  .stack-card:hover::after{ opacity: 1; }
+
+  .stack-head{ display: flex; align-items: center; gap: 12px; margin-bottom: 20px; }
+  .stack-icon{
+    width: 34px; height: 34px;
+    border-radius: 9px;
+    display: flex; align-items: center; justify-content: center;
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    color: var(--card-accent);
+    flex-shrink: 0;
+  }
+  .stack-icon svg{ width: 17px; height: 17px; }
+  .stack-head h3{
+    font-size: 13px; font-family: 'JetBrains Mono', monospace;
+    font-weight: 400; color: var(--text-faint); letter-spacing: 0.2px;
+  }
+
+  .pill-row{ display: flex; flex-wrap: wrap; gap: 10px; position: relative; }
+  .pill{
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    padding: 7px 12px;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    color: var(--text);
+    background: var(--surface-2);
+    transition: border-color 0.15s ease, color 0.15s ease, transform 0.15s ease;
+  }
+  .pill:hover{ border-color: var(--highlight-line); color: var(--highlight); transform: translateY(-1px); }
+
+  .stack-note{
+    margin-top: 40px;
+    color: var(--text-faint);
+    font-size: 14px;
+    max-width: 64ch;
+  }
+
+  /* ---------- PROJECTS ---------- */
+  .project-grid{ display: grid; grid-template-columns: repeat(2, 1fr); gap: 26px; }
+  @media (max-width: 780px){ .project-grid{ grid-template-columns: 1fr; } }
+
+  .project-card{
+    position: relative;
+    --card-accent: var(--accent);
+    --card-line: var(--accent-line);
+    --card-dim: var(--accent-dim);
+    background: linear-gradient(160deg, rgba(21,28,42,0.94), rgba(10,14,23,0.94));
+    backdrop-filter: blur(6px);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transition: border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+  }
+  .project-card::before{
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--card-accent), var(--highlight));
+    opacity: 0.55;
+    transition: opacity 0.25s ease;
+  }
+  .project-card:hover{
+    border-color: var(--card-line);
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px -20px rgba(0,0,0,0.6);
+  }
+  .project-card:hover::before{ opacity: 1; }
+
+  .project-top{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 22px;
+  }
+  .project-index{
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 28px;
+    font-weight: 600;
+    color: var(--border);
+    letter-spacing: -1px;
+  }
+  .project-badge{
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--card-accent);
+    border: 1px solid var(--card-line);
+    background: var(--card-dim);
+    border-radius: 999px;
+    padding: 4px 10px;
+  }
+
+  .project-card h3{ font-size: 20px; margin-bottom: 12px; }
+  .project-card p{ color: var(--text-muted); font-size: 14.5px; flex-grow: 1; margin: 0 0 22px; }
+
+  .project-tags{ display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px; }
+  .tag{
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11.5px;
+    color: var(--text-muted);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 4px 9px;
+  }
+
+  /* ---------- CONTACT ---------- */
+  .contact-block{
+    display: flex; align-items: flex-end; justify-content: space-between;
+    gap: 40px; flex-wrap: wrap;
+  }
+  .contact-block h2{ font-size: clamp(26px, 4vw, 38px); max-width: 14ch; }
+  .contact-block p{ color: var(--text-muted); max-width: 44ch; margin-top: 16px; }
+  .contact-actions{ display: flex; flex-direction: column; gap: 12px; min-width: 240px; }
+  .contact-row{
+    display: flex; align-items: center; gap: 10px;
+    padding: 13px 16px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    font-size: 14px;
+    color: var(--text-muted);
+    transition: border-color 0.15s ease, color 0.15s ease, transform 0.15s ease;
+    background: var(--surface);
+  }
+  .contact-row:hover{ border-color: var(--accent-line); color: var(--text); transform: translateX(2px); }
+  .contact-row svg{ width: 16px; height: 16px; color: var(--accent); flex-shrink: 0; }
+
+  footer{ padding: 32px 0; text-align: center; color: var(--text-faint); font-size: 13px; }
+</style>
+</head>
+<body>
+
+<header class="site-nav">
+  <div class="wrap nav-inner">
+    <div class="nav-name">Jhon Carlo <span>Palomar</span></div>
+    <nav class="nav-links">
+      <a href="#about">About</a>
+      <a href="#stack">Technologies</a>
+      <a href="#projects">Sample Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#about">About</a>
+    <a href="#stack">Technologies</a>
+    <a href="#projects">Sample Projects</a>
+    <a href="#contact">Contact</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow-role"><span class="dot"></span>AI Automation Specialist</div>
+      <h1>Building automation systems that connect <span class="grad">AI, APIs, data, and business workflows.</span></h1>
+      <p class="hero-intro">
+        AI Automation Specialist focused on designing complete workflows, integrations, and intelligent systems using n8n and modern automation technologies.
+      </p>
+      <div class="hero-actions">
+        <a href="#projects" class="btn btn-primary">View Sample Projects</a>
+        <a href="https://github.com/jc-ai-automation" target="_blank" rel="noopener" class="btn btn-outline">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.73.5.5 5.73.5 12c0 5.08 3.29 9.39 7.86 10.91.57.1.78-.25.78-.55 0-.27-.01-1.17-.02-2.12-3.2.7-3.88-1.36-3.88-1.36-.52-1.33-1.28-1.68-1.28-1.68-1.04-.72.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.03 1.76 2.7 1.25 3.36.96.1-.75.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.7 0-1.26.45-2.29 1.18-3.1-.12-.29-.51-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.79 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.24 2.76.12 3.05.74.81 1.18 1.84 1.18 3.1 0 4.43-2.7 5.4-5.27 5.69.42.36.78 1.07.78 2.16 0 1.56-.01 2.82-.01 3.2 0 .3.2.66.79.55A10.51 10.51 0 0 0 23.5 12C23.5 5.73 18.27.5 12 .5Z"/></svg>
+          GitHub
+        </a>
+        <a href="https://www.linkedin.com/in/jhon-carlo-palomar-5b7ab1431/" target="_blank" rel="noopener" class="btn btn-outline">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.15 1.45-2.15 2.94v5.67H9.34V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14ZM7.12 20.45H3.56V9h3.56v11.45Z"/></svg>
+          LinkedIn
+        </a>
+      </div>
+    </div>
+
+    <div class="hero-visual" aria-hidden="true">
+      <svg viewBox="0 0 380 380">
+        <defs>
+          <radialGradient id="coreGlow" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#8b5cf6" stop-opacity="0.85"/>
+            <stop offset="60%" stop-color="#8b5cf6" stop-opacity="0.22"/>
+            <stop offset="100%" stop-color="#8b5cf6" stop-opacity="0"/>
+          </radialGradient>
+          <linearGradient id="ringGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#3b82f6"/>
+            <stop offset="100%" stop-color="#22d3ee"/>
+          </linearGradient>
+          <linearGradient id="energyGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#22d3ee"/>
+            <stop offset="52%" stop-color="#3b82f6"/>
+            <stop offset="100%" stop-color="#8b5cf6"/>
+          </linearGradient>
+          <linearGradient id="coreRingGrad" x1="0%" y1="100%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#22d3ee" stop-opacity="0.9"/>
+            <stop offset="50%" stop-color="#3b82f6" stop-opacity="0.95"/>
+            <stop offset="100%" stop-color="#8b5cf6" stop-opacity="0.9"/>
+          </linearGradient>
+          <filter id="softGlow" x="-100%" y="-100%" width="300%" height="300%">
+            <feGaussianBlur stdDeviation="2.2" result="blur"/>
+            <feMerge>
+              <feMergeNode in="blur"/>
+              <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+          </filter>
+        </defs>
+
+        <!-- tick marks / infra grid -->
+        <g class="hv-tick">
+          <circle cx="190" cy="190" r="176" fill="none" stroke-dasharray="1 11"/>
+        </g>
+
+        <!-- outer ring: infrastructure -->
+        <g class="hv-spin-rev">
+          <circle class="hv-ring hv-ring-1" cx="190" cy="190" r="150"/>
+          <circle class="hv-node" cx="190" cy="40" r="5"/>
+          <circle class="hv-node" cx="340" cy="190" r="5"/>
+          <circle class="hv-node" cx="190" cy="340" r="5"/>
+          <circle class="hv-node" cx="40" cy="190" r="5"/>
+        </g>
+
+        <!-- middle ring: integrations -->
+        <g class="hv-spin-slow">
+          <circle class="hv-ring hv-ring-3" cx="190" cy="190" r="112" stroke="url(#ringGrad)" stroke-width="1.2"/>
+          <circle class="hv-node hv-node-violet" cx="278" cy="122" r="5.5"/>
+          <circle class="hv-node" cx="102" cy="258" r="5.5"/>
+          <circle class="hv-node hv-node-violet" cx="102" cy="122" r="5.5"/>
+        </g>
+
+        <!-- inner ring: automation flow -->
+        <g class="hv-spin-mid">
+          <circle class="hv-ring hv-ring-2" cx="190" cy="190" r="74"/>
+          <circle class="hv-node hv-node-accent" cx="190" cy="116" r="6"/>
+          <circle class="hv-node" cx="253" cy="228" r="6"/>
+          <circle class="hv-node" cx="127" cy="228" r="6"/>
+        </g>
+
+        <!-- flowing data connections -->
+        <g aria-hidden="true">
+          <circle class="hv-aura" cx="190" cy="190" r="92" fill="none" stroke="#8b5cf6" stroke-opacity="0.12" stroke-width="18"/>
+          <path class="hv-energy-path" d="M76 196 C110 120, 160 106, 190 190 S270 274, 310 190"/>
+          <path class="hv-energy-path alt" d="M190 65 C260 82, 286 140, 190 190 S94 300, 190 318"/>
+          <g class="hv-satellite">
+            <circle class="hv-data-dot" cx="190" cy="74" r="4.2"/>
+          </g>
+          <g class="hv-satellite alt">
+            <circle class="hv-data-dot violet" cx="296" cy="190" r="4.6"/>
+          </g>
+        </g>
+
+        <!-- core: intelligence -->
+        <g class="hv-core">
+          <circle cx="190" cy="190" r="66" fill="url(#coreGlow)"/>
+          <circle class="hv-core-halo" cx="190" cy="190" r="40"/>
+          <circle cx="190" cy="190" r="25" fill="#0d1420" stroke="url(#coreRingGrad)" stroke-width="1.6"/>
+          <circle cx="190" cy="190" r="8" fill="#3b82f6" opacity="0.28" filter="url(#softGlow)"/>
+          <g class="hv-core-mark">
+            <path d="M176 193 C183 180, 190 180, 197 190 S208 199, 214 186" fill="none" stroke="#22d3ee" stroke-width="2" stroke-linecap="round"/>
+            <circle cx="176" cy="193" r="2.5" fill="#22d3ee"/>
+            <circle cx="197" cy="190" r="2.5" fill="#3b82f6"/>
+            <circle cx="214" cy="186" r="2.5" fill="#8b5cf6"/>
+          </g>
+        </g>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>About</h2>
+      <span class="section-num">01</span>
+    </div>
+    <div class="about-body">
+      <div>
+        <p>
+          I'm an AI Automation Specialist focused on designing workflows and AI agents that reduce manual work and connect the tools teams already rely on. My work centers on making systems talk to each other cleanly, through APIs, webhooks, and event based automation, so information moves without someone having to move it by hand.
+        </p>
+        <p>
+          I'm particularly interested in the space where automation platforms meet conversational AI: building agents that don't just respond, but complete real tasks like qualifying leads, screening candidates, or monitoring operations end to end.
+        </p>
+      </div>
+      <div class="about-focus">
+        <h3>// currently focused on</h3>
+        <ul>
+          <li>Voice and chat AI agents for real business workflows</li>
+          <li>automation built with n8n and system integration</li>
+          <li>RAG pipelines for document and candidate screening</li>
+          <li>Reliable webhook and API powered data pipelines</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="stack">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Selected Technologies &amp; Tools</h2>
+      <span class="section-num">02</span>
+    </div>
+    <p class="section-sub">A working sample of the platforms and languages I build with regularly. It is not an exhaustive list, and I adapt quickly to new tools depending on what a system needs.</p>
+
+    <div class="stack-groups">
+      <div class="stack-card">
+        <div class="stack-head">
+          <div class="stack-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 9h16M4 15h16M9 4v16M15 4v16"/></svg>
+          </div>
+          <h3>// automation &amp; integration</h3>
+        </div>
+        <div class="pill-row">
+          <span class="pill">n8n</span>
+          <span class="pill">REST APIs</span>
+          <span class="pill">Webhooks</span>
+          <span class="pill">Slack</span>
+          <span class="pill">Google Workspace</span>
+        </div>
+      </div>
+
+      <div class="stack-card">
+        <div class="stack-head">
+          <div class="stack-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v6c0 1.66 3.58 3 8 3s8-1.34 8-3V5"/><path d="M4 11v6c0 1.66 3.58 3 8 3s8-1.34 8-3v-6"/></svg>
+          </div>
+          <h3>// data &amp; backend</h3>
+        </div>
+        <div class="pill-row">
+          <span class="pill">Supabase</span>
+          <span class="pill">PostgreSQL</span>
+          <span class="pill">Airtable</span>
+          <span class="pill">JSON</span>
+        </div>
+      </div>
+
+      <div class="stack-card" style="--card-accent: var(--violet); --card-dim: var(--violet-dim);">
+        <div class="stack-head">
+          <div class="stack-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/><circle cx="12" cy="12" r="4"/></svg>
+          </div>
+          <h3>// artificial intelligence</h3>
+        </div>
+        <div class="pill-row">
+          <span class="pill">OpenAI</span>
+          <span class="pill">Retell AI</span>
+        </div>
+      </div>
+
+      <div class="stack-card">
+        <div class="stack-head">
+          <div class="stack-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M7 9l3 2-3 2M13 13h4"/></svg>
+          </div>
+          <h3>// development &amp; infrastructure</h3>
+        </div>
+        <div class="pill-row">
+          <span class="pill">JavaScript</span>
+          <span class="pill">Docker</span>
+          <span class="pill">Cloudflare</span>
+        </div>
+      </div>
+    </div>
+
+    <p class="stack-note">These are the tools I currently reach for most often. My focus is on the underlying systems thinking, including integration, data flow, and reliability, which carries over to whatever platform a project calls for.</p>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Sample Projects</h2>
+      <span class="section-num">03</span>
+    </div>
+    <p class="section-sub">A selection of automation and AI systems I've designed and built.</p>
+
+    <div class="project-grid">
+
+      <div class="project-card" style="--card-accent: var(--violet); --card-line: var(--violet-line); --card-dim: var(--violet-dim);">
+        <div class="project-top">
+          <span class="project-index">01</span>
+          <span class="project-badge">Voice AI</span>
+        </div>
+        <h3>Apex AI Voice Agent</h3>
+        <p>An AI receptionist that handles inbound calls to qualify leads and book appointments automatically, reducing the need for manual call handling.</p>
+        <div class="project-tags">
+          <span class="tag">Retell AI</span>
+          <span class="tag">n8n</span>
+          <span class="tag">Webhooks</span>
+        </div>
+        <a href="https://github.com/jc-ai-automation/apex-ai-voice-agent" target="_blank" rel="noopener" class="btn btn-outline btn-sm">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.73.5.5 5.73.5 12c0 5.08 3.29 9.39 7.86 10.91.57.1.78-.25.78-.55 0-.27-.01-1.17-.02-2.12-3.2.7-3.88-1.36-3.88-1.36-.52-1.33-1.28-1.68-1.28-1.68-1.04-.72.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.03 1.76 2.7 1.25 3.36.96.1-.75.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.7 0-1.26.45-2.29 1.18-3.1-.12-.29-.51-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.79 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.24 2.76.12 3.05.74.81 1.18 1.84 1.18 3.1 0 4.43-2.7 5.4-5.27 5.69.42.36.78 1.07.78 2.16 0 1.56-.01 2.82-.01 3.2 0 .3.2.66.79.55A10.51 10.51 0 0 0 23.5 12C23.5 5.73 18.27.5 12 .5Z"/></svg>
+          View on GitHub
+        </a>
+      </div>
+
+      <div class="project-card">
+        <div class="project-top">
+          <span class="project-index">02</span>
+          <span class="project-badge">RAG / HR Tech</span>
+        </div>
+        <h3>TalentFlow Recruitment Automation</h3>
+        <p>A candidate screening system using RAG that surfaces relevant candidates for review, keeping a human in the loop for final decisions.</p>
+        <div class="project-tags">
+          <span class="tag">OpenAI</span>
+          <span class="tag">Supabase</span>
+          <span class="tag">n8n</span>
+        </div>
+        <a href="https://github.com/jc-ai-automation/talentflow-recruitment-automation" target="_blank" rel="noopener" class="btn btn-outline btn-sm">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.73.5.5 5.73.5 12c0 5.08 3.29 9.39 7.86 10.91.57.1.78-.25.78-.55 0-.27-.01-1.17-.02-2.12-3.2.7-3.88-1.36-3.88-1.36-.52-1.33-1.28-1.68-1.28-1.68-1.04-.72.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.03 1.76 2.7 1.25 3.36.96.1-.75.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.7 0-1.26.45-2.29 1.18-3.1-.12-.29-.51-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.79 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.24 2.76.12 3.05.74.81 1.18 1.84 1.18 3.1 0 4.43-2.7 5.4-5.27 5.69.42.36.78 1.07.78 2.16 0 1.56-.01 2.82-.01 3.2 0 .3.2.66.79.55A10.51 10.51 0 0 0 23.5 12C23.5 5.73 18.27.5 12 .5Z"/></svg>
+          View on GitHub
+        </a>
+      </div>
+
+      <div class="project-card">
+        <div class="project-top">
+          <span class="project-index">03</span>
+          <span class="project-badge">Content Pipeline</span>
+        </div>
+        <h3>Podcast Content Atomization</h3>
+        <p>An automated pipeline that turns long form podcast episodes into reusable content assets, cutting down the manual work of repurposing content.</p>
+        <div class="project-tags">
+          <span class="tag">n8n</span>
+          <span class="tag">OpenAI</span>
+          <span class="tag">JSON</span>
+        </div>
+        <a href="https://github.com/jc-ai-automation/podcast-content-atomization" target="_blank" rel="noopener" class="btn btn-outline btn-sm">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.73.5.5 5.73.5 12c0 5.08 3.29 9.39 7.86 10.91.57.1.78-.25.78-.55 0-.27-.01-1.17-.02-2.12-3.2.7-3.88-1.36-3.88-1.36-.52-1.33-1.28-1.68-1.28-1.68-1.04-.72.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.03 1.76 2.7 1.25 3.36.96.1-.75.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.7 0-1.26.45-2.29 1.18-3.1-.12-.29-.51-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.79 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.24 2.76.12 3.05.74.81 1.18 1.84 1.18 3.1 0 4.43-2.7 5.4-5.27 5.69.42.36.78 1.07.78 2.16 0 1.56-.01 2.82-.01 3.2 0 .3.2.66.79.55A10.51 10.51 0 0 0 23.5 12C23.5 5.73 18.27.5 12 .5Z"/></svg>
+          View on GitHub
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap contact-block">
+    <div>
+      <h2>Let's build something that runs itself.</h2>
+      <p>Open to opportunities in AI automation, workflow engineering, and integration work. Reach out through any of the channels below.</p>
+    </div>
+    <div class="contact-actions">
+      <a href="mailto:jcawts05@gmail.com" class="contact-row">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 6h18v12H3z"/><path d="m3 7 9 6 9-6"/></svg>
+        jcawts05@gmail.com
+      </a>
+      <a href="https://github.com/jc-ai-automation" target="_blank" rel="noopener" class="contact-row">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.73.5.5 5.73.5 12c0 5.08 3.29 9.39 7.86 10.91.57.1.78-.25.78-.55 0-.27-.01-1.17-.02-2.12-3.2.7-3.88-1.36-3.88-1.36-.52-1.33-1.28-1.68-1.28-1.68-1.04-.72.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.03 1.76 2.7 1.25 3.36.96.1-.75.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.7 0-1.26.45-2.29 1.18-3.1-.12-.29-.51-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.79 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.24 2.76.12 3.05.74.81 1.18 1.84 1.18 3.1 0 4.43-2.7 5.4-5.27 5.69.42.36.78 1.07.78 2.16 0 1.56-.01 2.82-.01 3.2 0 .3.2.66.79.55A10.51 10.51 0 0 0 23.5 12C23.5 5.73 18.27.5 12 .5Z"/></svg>
+        github.com/jc-ai-automation
+      </a>
+      <a href="https://www.linkedin.com/in/jhon-carlo-palomar-5b7ab1431/" target="_blank" rel="noopener" class="contact-row">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.15 1.45-2.15 2.94v5.67H9.34V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14ZM7.12 20.45H3.56V9h3.56v11.45Z"/></svg>
+        linkedin.com/in/jhon-carlo-palomar-5b7ab1431
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">© 2026 Jhon Carlo Palomar</div>
+</footer>
+
+<script>
+  const navToggle = document.getElementById('navToggle');
+  const mobileMenu = document.getElementById('mobileMenu');
+  navToggle.addEventListener('click', () => {
+    const isOpen = mobileMenu.classList.toggle('open');
+    navToggle.setAttribute('aria-expanded', isOpen);
+  });
+  mobileMenu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu.classList.remove('open');
+      navToggle.setAttribute('aria-expanded', 'false');
+    });
+  });
+</script>
+
+</body>
+</html>
